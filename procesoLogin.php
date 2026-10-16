@@ -20,6 +20,7 @@ $usuario = $_POST['usuario'] ?? '';
 $password = $_POST['password'] ?? '';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 $usuario_correcto = "fcytuader";
 $password_correcta = "programacionavanzada";
@@ -29,6 +30,15 @@ $usuarios_validos = [
     'fcytuader' => 'programacionavanzada',
     'admin' => 'admin',
 ];
+=======
+$usuarios_validos = [
+    'fcytuader' => 'programacionavanzada',
+    'admin' => 'admin',
+];
+
+$password_correcta = $usuarios_validos[$usuario] ?? null;
+$credencialesValidas = ($usuario !== '' && $password !== '' && $password === $password_correcta);
+>>>>>>> parent of fc898cc (base de datos)
 
 $password_correcta = $usuarios_validos[$usuario] ?? null;
 $credencialesValidas = ($usuario !== '' && $password !== '' && $password === $password_correcta);
@@ -60,11 +70,14 @@ if ($captchaValido && $credencialesValidas) {
     $_SESSION['logueado'] = true;
     $_SESSION['usuario'] = $usuario;
 <<<<<<< HEAD
+<<<<<<< HEAD
     
     echo '<div class="ficha-resultado">
         <span class="sello sello--ok">Acceso concedido</span>
         <p>¡Te logueaste bien! Bienvenido, ' . htmlspecialchars($usuario) . '</p>
     </div>';
+=======
+>>>>>>> parent of fc898cc (base de datos)
 =======
 >>>>>>> parent of fc898cc (base de datos)
 
