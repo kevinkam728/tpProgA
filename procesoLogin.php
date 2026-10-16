@@ -19,20 +19,33 @@ session_start();
 $usuario = $_POST['usuario'] ?? '';
 $password = $_POST['password'] ?? '';
 
+<<<<<<< HEAD
 
 $usuario_correcto = "fcytuader";
 $password_correcta = "programacionavanzada";
 
+=======
+$usuarios_validos = [
+    'fcytuader' => 'programacionavanzada',
+    'admin' => 'admin',
+];
+
+$password_correcta = $usuarios_validos[$usuario] ?? null;
+$credencialesValidas = ($usuario !== '' && $password !== '' && $password === $password_correcta);
+>>>>>>> parent of fc898cc (base de datos)
 
 if ($usuario === $usuario_correcto && $password === $password_correcta) {
    
     $_SESSION['logueado'] = true;
     $_SESSION['usuario'] = $usuario;
+<<<<<<< HEAD
     
     echo '<div class="ficha-resultado">
         <span class="sello sello--ok">Acceso concedido</span>
         <p>¡Te logueaste bien! Bienvenido, ' . htmlspecialchars($usuario) . '</p>
     </div>';
+=======
+>>>>>>> parent of fc898cc (base de datos)
 
     // Etapa 2: pantalla ficticia de "créditos agotados"
     
