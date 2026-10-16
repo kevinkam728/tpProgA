@@ -6,6 +6,10 @@ if (!empty($_SESSION['logueado']) && $_SESSION['logueado'] === true) {
     exit;
 }
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 $error = $_SESSION['error'] ?? '';
 unset($_SESSION['error']);
 $recaptchaSiteKey = '6Le1TM0tAAAAACvxeirW5N62-dAb8khdivkvkn41';
@@ -51,9 +55,13 @@ $recaptchaSiteKey = '6Le1TM0tAAAAACvxeirW5N62-dAb8khdivkvkn41';
         <input type="text" id="usuario" name="usuario" placeholder="Usuario" required>
         <input type="password" id="password" name="password" placeholder="Contraseña" required>
 
+<<<<<<< Updated upstream
         <div class="captcha-box">
           <div class="g-recaptcha" data-sitekey="<?php echo htmlspecialchars($recaptchaSiteKey, ENT_QUOTES, 'UTF-8'); ?>" data-callback="onRecaptchaSuccess" data-expired-callback="onRecaptchaExpired"></div>
         </div>
+=======
+        <div class="g-recaptcha" data-sitekey="6LdbS80tAAAAAJhAxGvIpI9Ehqe4UY7lO6xYD7wC"></div>
+>>>>>>> Stashed changes
 
         <?php if (!empty($error)) : ?>
             <p class="error-message"><?php echo htmlspecialchars($error); ?></p>
