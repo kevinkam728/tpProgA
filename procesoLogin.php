@@ -34,8 +34,23 @@ $password_correcta = $usuarios_validos[$usuario] ?? null;
 $credencialesValidas = ($usuario !== '' && $password !== '' && $password === $password_correcta);
 >>>>>>> parent of fc898cc (base de datos)
 
+<<<<<<< HEAD
 if ($usuario === $usuario_correcto && $password === $password_correcta) {
    
+=======
+$recaptchaSecretKey = '6LdcS80tAAAAAGO6MuoLY2YOGnbuVJ-RNH2wIrbS';
+$captchaValido = false;
+
+if ($recaptchaSecretKey !== '6LdcS80tAAAAAGO6MuoLY2YOGnbuVJ-RNH2wIrbS' && $recaptchaResponse !== '') {
+    $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($recaptchaSecretKey) . '&response=' . urlencode($recaptchaResponse));
+    $captchaData = json_decode($verifyResponse, true);
+    $captchaValido = !empty($captchaData['success']) && $captchaData['success'] === true;
+}
+
+if ($captchaValido && $credencialesValidas) {
+    unset($_SESSION['error']);
+    session_regenerate_id(true); // Regenerar el ID de sesión para mayor seguridad
+>>>>>>> parent of d4c77da (captcha de google andando)
     $_SESSION['logueado'] = true;
     $_SESSION['usuario'] = $usuario;
 <<<<<<< HEAD
@@ -164,6 +179,18 @@ HTML;
 ?>
 </div>
 
+<<<<<<< HEAD
 <?php include("php/footer.php"); ?>
 </body>
 </html>
+=======
+if (!$captchaValido && $credencialesValidas) {
+    $_SESSION['error'] = 'Captcha incorrecto.';
+} else {
+    $_SESSION['error'] = 'Usuario o contraseña incorrectos.';
+}
+
+header('Location: loginfallido.php');
+exit;
+
+>>>>>>> parent of d4c77da (captcha de google andando)
